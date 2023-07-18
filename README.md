@@ -1,28 +1,36 @@
-# Project
+# CoverageEval
+This is the data and usage code for the dataset introduced in the paper "Predicting Code Coverage without Execution".
 
-> This repo has been populated by an initial template to help get you started. Please
-> make sure to update the content to build a great experience for community-building.
+The CoverageEval dataset is an extension of the [HumanEval](https://github.com/openai/human-eval) dataset. We augment the problems in HumanEval with code coverage information for each test within the problem. We propose this dataset as a useful metric for evaluating Large Language Models, as code coverage prediction from LLMs can be seen as a proxy for code understanding. 
 
-As the maintainer of this project, please make a few updates:
+## Data
+Each problem in the dataset is in its own JSON file (named based on the problem ID). The JSON structure for each file is:
+```
+{'problem_id': 
+'problem':
+'method': 
+'tests': [
+    {'test_id':
+    'test':
+    'coverage_executed':
+    'coverage':
+    'coverage_sequence': []
+    'branch_sequence': []
+    },
+    . . .
+]
+}
+```
 
-- Improving this README.MD file to provide a great experience
-- Updating SUPPORT.MD with content about this project's support experience
-- Understanding the security reporting process in SECURITY.MD
-- Remove this section from the README
+## Installation
+TODO installation instructions based on usage code
 
-## Contributing
+## Usage
+TODO usage instructions based on usage code
 
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
+## Citation
+Please cite using the following bibtex entry:
 
-When you submit a pull request, a CLA bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
-provided by the bot. You will only need to do this once across all repos using our CLA.
-
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
 ## Trademarks
 
