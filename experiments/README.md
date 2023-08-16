@@ -18,7 +18,7 @@
 | Google BARD (text-bison-001)  |  1.87 | 86.93 | 19.63 |
 | Anthropic Claude (claude-1.3  |  4.83 | 83.21 | 19.16 |
 
-#### Multi Shot Experimentation
+#### Multi (6) Shot Experimentation
 | Model                         | Match | Stmt | Branch | 
 |-------------------------------|-------|-------|-------|
 | OpenAI GPT-4 (gpt-4           | 30.04 | 90.5  | 22.5  |
