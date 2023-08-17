@@ -2,29 +2,36 @@
 
 ## Experiment Logs
 
+
 #### Zero Shot Experimentation
+##### Experiment Date: 7/25/2023
+
 | Model                         | Match | Stmt | Branch | 
 |-------------------------------|-------|-------|-------|
-| OpenAI GPT-4 (gpt-4           | 25.75 | 84.47 | 20.16 |
+| OpenAI GPT-4 (gpt-4)          | 25.75 | 84.47 | 20.16 |
 | OpenAI GPT-3.5 (gpt-3.5-turbo)| 0     | 39.87 | 8.33  |
 | Google BARD (text-bison-001)  |  0    | 81.27 | 17.21 |
-| Anthropic Claude (claude-1.3  | 3.9   | 84.47 | 20.07 |
+| Anthropic Claude (claude-1.3)  | 3.9   | 84.47 | 20.07 |
 
 #### One Shot Experimentation
+##### Experiment Date: 7/25/2023
+
 | Model                         | Match | Stmt | Branch | 
 |-------------------------------|-------|-------|-------|
-| OpenAI GPT-4 (gpt-4           | 22.85 | 90.71 | 22.65 |
+| OpenAI GPT-4 (gpt-4)           | 22.85 | 90.71 | 22.65 |
 | OpenAI GPT-3.5 (gpt-3.5-turbo)|  8.17 | 76.53 | 17.17 |
 | Google BARD (text-bison-001)  |  1.87 | 86.93 | 19.63 |
-| Anthropic Claude (claude-1.3  |  4.83 | 83.21 | 19.16 |
+| Anthropic Claude (claude-1.3)  |  4.83 | 83.21 | 19.16 |
 
 #### Multi (6) Shot Experimentation
+##### Experiment Date: 7/25/2023
+
 | Model                         | Match | Stmt | Branch | 
 |-------------------------------|-------|-------|-------|
-| OpenAI GPT-4 (gpt-4           | 30.04 | 90.5  | 22.5  |
+| OpenAI GPT-4 (gpt-4)           | 30.04 | 90.5  | 22.5  |
 | OpenAI GPT-3.5 (gpt-3.5-turbo)| 11.03 | 82.29 | 17.9  |
 | Google BARD (text-bison-001)  | 21.56 | 85.66 | 20.52 |
-| Anthropic Claude (claude-1.3  | 6.88  | 55.7  | 12.23 |
+| Anthropic Claude (claude-1.3)  | 6.88  | 55.7  | 12.23 |
 
 ## Prompting the Model
 We provide input to all the models with the same prompt structure. We begin each request to the model with the following instructions:
@@ -304,3 +311,10 @@ The same problem (`check_dict_case`), has the following ground-truth output for 
 ```
 
 A `>` symbol at the beginning of a line indicates the model predicts that the test will run this line of code. An `!` symbol indicates that the model predicts the test will not cause the line to be run. 
+
+## Inclusion Criteria
+
+When running these experiments, we only include data where the `(problem, test)` pair does not have trivial coverage, such as all executed lines (`>`).
+
+Also, in both the one and multi shot learning experiments, we ensure that the example `(problem, test)` pairs provided to the model are not sampled from the current input problem. So, the model does not see coverage examples from a given problem when it is predicting that problem's coverage.
+
