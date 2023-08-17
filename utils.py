@@ -3,8 +3,6 @@ import gzip
 import json
 import os
 
-
-ROOT = os.path.dirname(os.path.abspath(__file__))
 COV_EVAL = os.path.join("dataset", "data")
 
 def read_problems(evalset_file: str = COV_EVAL) -> Dict[str, Dict]:
