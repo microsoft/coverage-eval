@@ -12,9 +12,9 @@ def read_problems(evalset_file: str = COV_EVAL) -> Dict[str, Dict]:
     json_files = find_json_files(COV_EVAL)
     for json_file in json_files:
         with open(json_file, 'r') as f:
-            task = json.load(json_file)
+            task = json.load(f)
             
-        problem_dict[task['task_id']] = task
+        problem_dict[task['problem_id']] = task
 
     return problem_dict
 
