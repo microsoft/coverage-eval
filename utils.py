@@ -8,21 +8,23 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 COV_EVAL = os.path.join("dataset", "data")
 
 def read_problems(evalset_file: str = COV_EVAL) -> Dict[str, Dict]:
-    return {task["task_id"]: task for task in stream_jsonl(evalset_file)}
+    problem_dict = {}
+    json_files = find_json_files(COV_EVAL)
+    for json_file in json_files:
+        with open(json_file, 'r') as f:
+            task = json.load(json_file)
+            
+        problem_dict[task['task_id']] = task
+
+    return problem_dict
 
 
-def stream_jsonl(filename: str) -> Iterable[Dict]:
-    """
-    Parses each jsonl line and yields it as a dictionary
-    """
-    if filename.endswith(".gz"):
-        with open(filename, "rb") as gzfp:
-            with gzip.open(gzfp, 'rt') as fp:
-                for line in fp:
-                    if any(not x.isspace() for x in line):
-                        yield json.loads(line)
-    else:
-        with open(filename, "r") as fp:
-            for line in fp:
-                if any(not x.isspace() for x in line):
-                    yield json.loads(line)
+def find_json_files(directory):
+    json_files = []
+    for root, _, files in os.walk(directory):
+        for file in files:
+            if file.endswith('.json'):
+                json_files.append(os.path.join(root, file))
+    return json_files
+
+
