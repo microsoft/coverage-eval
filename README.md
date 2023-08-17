@@ -66,6 +66,16 @@ problems = read_problems()
 ## Citation
 Please cite using the following bibtex entry:
 
+```
+@misc{tufano2023predicting,
+      title={Predicting Code Coverage without Execution}, 
+      author={Michele Tufano and Shubham Chandel and Anisha Agarwal and Neel Sundaresan and Colin Clement},
+      year={2023},
+      eprint={2307.13383},
+      archivePrefix={arXiv},
+      primaryClass={cs.SE}
+}
+```
 
 ## Trademarks
 
