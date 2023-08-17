@@ -132,7 +132,7 @@ def process(obj):
 num_examples = sys.argv[1]
 model = sys.argv[2]
 out_path = sys.argv[3]
-infile = f'coverage-eval/experiments/inputs/{num_examples}.jsonl'
+infile = f'inputs/{num_examples}.jsonl'
 outfile = out_path
 # remove if the file exists
 Path(outfile).unlink(missing_ok=True)
