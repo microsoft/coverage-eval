@@ -23,11 +23,20 @@ Each problem in the dataset is in its own JSON file (named based on the problem 
 ```
 
 ## Installation
-TODO installation instructions based on usage code
+Check out this repository and install the necessary requirements
+
+`git clone https://github.com/microsoft/coverage-eval.git`
+
+`pip install -r requirements.txt`
 
 ## Usage
-TODO usage instructions based on usage code
+Access the coverage-augmented problems via the `read_problems()` function:
 
+```
+from utils import read_problems
+
+problems = read_problems()
+```
 
 ## Experimental Results
 
